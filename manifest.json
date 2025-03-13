@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Chrome拡張機能のデモ",
   "action": {
-    "default_popup": "src/popup.html",
+    "default_popup": "src/popup/index.html",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
@@ -13,7 +13,13 @@
   },
   "permissions": [],
   "background": {
-    "service_worker": "src/background.js",
+    "service_worker": "src/background/background.js",
     "type": "module"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content.jsx"]
+    }
+  ]
 }
